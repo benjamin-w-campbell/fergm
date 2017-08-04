@@ -3,7 +3,7 @@ Date: 2017-08-04
 Type: Package
 Title: Estimation and Fit Assessment of Frailty Exponential Random Graph Models
 Version: 0.2.0
-Authors@R: c(person(given = c("Jason", "W."), family = "Morgan", role = c("aut")), person(given = c("Benjamin", "W."), family = "Campbell", email = "campbell.1721@osu.edu", role = c("aut")),  person(given = c("Dino", "P."), family = "Christenson", role = c("aut")), person(given = c("Janet", "M."), family = "Box-Steffensmeier", role = c("aut")))
+Authors@R: c(person(given = c("Jason", "W."), family = "Morgan", role = c("aut")), person(given = c("Benjamin", "W."), family = "Campbell", email = "campbell.1721@osu.edu", role = c("aut", "cre")),  person(given = c("Dino", "P."), family = "Christenson", role = c("aut")), person(given = c("Janet", "M."), family = "Box-Steffensmeier", role = c("aut")))
 Author: Jason W. Morgan [aut], Benjamin W. Campbell [aut, cre],  Dino P. Christenson [aut],  Janet M. Box-Steffensmeier [aut]
 Maintainer: Benjamin W. Campbell <campbell.1721@osu.edu>
 Description: Frailty Exponential Random Graph Models estimated through pseudo likelihood with frailty terms estimated using STAN.
