@@ -18,13 +18,13 @@ This is the initial submission of this package for consideration.
 ### Notes
 This check includes two notes.
 
-* Authors@R field gives more than one person with maintainer role
+ Authors@R field gives more than one person with maintainer role
 
   * All listed authors are creators of the package, Benjamin W. Campbell is the corresponding maintainer.  
 
-* checking R code for possible problems ... NOTE Undefined global functions or variables: ..scaled..
+ checking R code for possible problems ... NOTE Undefined global functions or variables: ..scaled..
 
   * This underfined global variable is locally defined by ggplot2.
-
+  
 ## Downstream dependencies
 There are currently no downstream dependencies for this package. 
