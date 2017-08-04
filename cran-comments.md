@@ -19,6 +19,8 @@ This is the initial submission of this package for consideration.
 This check includes one note that is a function of the way ggplot2 locally defines variables.
  
  * checking R code for possible problems ... NOTE Undefined global functions or variables: ..scaled..
+ 
+In addition as this is a new submission, you may see a note indicating this.
 
 ## Downstream dependencies
 There are currently no downstream dependencies for this package. 
