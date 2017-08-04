@@ -1,10 +1,10 @@
 Package: fergm
-Date: 2017-08-02
+Date: 2017-08-04
 Type: Package
 Title: Estimation and Fit Assessment of Frailty Exponential Random Graph Models
 Version: 0.3.0
 Authors@R: c(person(given = c("Jason", "W."), family = "Morgan", role = "c("aut", "cre")), person(given = c("Benjamin", "W."), family = "Campbell", email = "campbell.1721@osu.edu", role = c("aut", "cre")),  person(given = c("Dino", "P."), family = "Christenson", role = c("aut", "cre")), person(given = c("Janet", "M."), family = "Box-Steffensmeier", role = c("aut", "cre")))
-Author: Jason W. Morgan [aut, cre], 
+Authors: Jason W. Morgan [aut, cre], 
 Benjamin W. Campbell [aut, cre], 
 Dino P. Christenson [aut, cre],  
 Janet M. Box-Steffensmeier[aut, cre]
