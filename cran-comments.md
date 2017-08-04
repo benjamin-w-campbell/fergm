@@ -13,18 +13,12 @@ This is the initial submission of this package for consideration.
 
 
 ## R CMD check results
-0 errors | 0 warnings | 2 notes
+0 errors | 0 warnings | 1 notes
 
 ### Notes
-This check includes two notes.
+This check includes one note that is a function of the way ggplot2 locally defines variables.
+ 
+ * checking R code for possible problems ... NOTE Undefined global functions or variables: ..scaled..
 
- Authors@R field gives more than one person with maintainer role
-
-  * All listed authors are creators of the package, Benjamin W. Campbell is the corresponding maintainer.  
-
- checking R code for possible problems ... NOTE Undefined global functions or variables: ..scaled..
-
-  * This underfined global variable is locally defined by ggplot2.
-  
 ## Downstream dependencies
 There are currently no downstream dependencies for this package. 
