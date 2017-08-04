@@ -21,9 +21,9 @@
 compare_predictions_plot <- function(compare_predictions_out = NULL){
   plot_df <- reshape2::melt(as.data.frame(compare_predictions_out))
   p <- ggplot(data = plot_df, aes(x = plot_df$value, color = plot_df$variable, fill = plot_df$variable)) +
-    geom_density(aes(x=plot_df$value, y=..scaled..), alpha = 0.5) +
+    geom_density(alpha = 0.5) +
     xlab("Percent of Ties Correctly Predicted") +
-    ylab("Scaled Density") +
+    ylab("Density") +
     scale_fill_manual(values=c("firebrick4", "dodgerblue4"),
                       name="Model",
                       breaks=c("pct_correct_ergm", "pct_correct_fergm"),

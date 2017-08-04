@@ -40,9 +40,9 @@ coef_posterior_density <- function(fergm.fit = NULL, custom_var_names = NULL){
     var <- custom_var_names[i]
 
     pl <- ggplot(data = plot_df, aes(x = plot_df$value)) +
-      geom_density(aes(x=plot_df$value, y=..scaled..), alpha = 0.5, fill = "firebrick4", color = "firebrick4") +
+      geom_density(alpha = 0.5, fill = "firebrick4", color = "firebrick4") +
       xlab("Effect Value") +
-      ylab("Scaled Density") +
+      ylab("Density") +
       ggtitle(var) +
       #cale_fill_manual(values=c("firebrick4", "dodgerblue4"),
                         #name="Model",
