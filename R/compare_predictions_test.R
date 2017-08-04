@@ -1,4 +1,4 @@
-#' Determine whether the percentage of ties correctly predicted by the FERGM are statistically disguishable from those of the ERGM
+#' Determine whether the percentage of ties correctly predicted by the FERGM are statistically distinguishable from those of the ERGM
 #'
 #' This is a plot function to determine whether the distributions of predictions from ERGM and FERGM objects differ.
 #' @param compare_predictions_out Matrix of correctly predicted ties produced by the compare_predictions function.
