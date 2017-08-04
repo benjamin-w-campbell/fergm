@@ -3,11 +3,11 @@ Date: 2017-08-04
 Type: Package
 Title: Estimation and Fit Assessment of Frailty Exponential Random Graph Models
 Version: 0.3.0
-Authors@R: c(person(given = c("Jason", "W."), family = "Morgan", role = "c("aut", "cre")), person(given = c("Benjamin", "W."), family = "Campbell", email = "campbell.1721@osu.edu", role = c("aut", "cre")),  person(given = c("Dino", "P."), family = "Christenson", role = c("aut", "cre")), person(given = c("Janet", "M."), family = "Box-Steffensmeier", role = c("aut", "cre")))
-Author: Jason W. Morgan [aut, cre], 
+Authors@R: c(person(given = c("Jason", "W."), family = "Morgan", role = "c("aut")), person(given = c("Benjamin", "W."), family = "Campbell", email = "campbell.1721@osu.edu", role = c("aut")),  person(given = c("Dino", "P."), family = "Christenson", role = c("aut")), person(given = c("Janet", "M."), family = "Box-Steffensmeier", role = c("aut")))
+Author: Jason W. Morgan [aut], 
 Benjamin W. Campbell [aut, cre], 
-Dino P. Christenson [aut, cre],  
-Janet M. Box-Steffensmeier[aut, cre]
+Dino P. Christenson [aut],  
+Janet M. Box-Steffensmeier[aut]
 Maintainer: Benjamin W. Campbell <campbell.1721@osu.edu>
 Description: Frailty Exponential Random Graph Models estimated through pseudo likelihood with frailty terms estimated using STAN.
     Goodness of fit for Frailty Exponential Random Graph Models is also available, with easy visualizations for comparison to fit Exponential Random Graph Models. 
