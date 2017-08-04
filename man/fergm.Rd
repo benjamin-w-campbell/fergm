@@ -16,7 +16,7 @@ fergm(net = NULL, form = NULL, seed = 12345, chains = 4, warmup = 100,
 
 \item{chains}{An integer that sets the number of Markov chains that should be used by Stan.}
 
-\item{warmup}{The number of warmup or burnin iterations that should be used before posterior draws are taken.  Defaults to 100.}
+\item{warmup}{The number of warm up or burn-in iterations that should be used before posterior draws are taken.  Defaults to 100.}
 
 \item{iter}{The number of total number of samples that should be taken including warmups  Defaults to 600 total iterations, leading to a posterior sample size of 500.}
 

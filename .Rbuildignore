@@ -2,5 +2,6 @@
 ^\.Rproj\.user$
 ^revdep$
 ^cran-comments\.md$
+^README\.md$
 ^R/called_functions\.R$
 ^\.travis\.yml$
