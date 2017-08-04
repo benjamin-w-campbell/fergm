@@ -5,7 +5,7 @@
 #' @param form A character string specified as "ergm.term1 + ergm.term2", must be terms supported for ERGMs.
 #' @param seed An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.
 #' @param chains An integer that sets the number of Markov chains that should be used by Stan.
-#' @param warmup The number of warmup or burnin iterations that should be used before posterior draws are taken.  Defaults to 100.
+#' @param warmup The number of warm up or burn-in iterations that should be used before posterior draws are taken.  Defaults to 100.
 #' @param iter The number of total number of samples that should be taken including warmups  Defaults to 600 total iterations, leading to a posterior sample size of 500.
 #' @param cores The number of cores to used should parallel processing be desired.  Defaults to 1.
 #' @return This function returns a list that includes the Stan output (stan.fit) and the data object passed to Stan (stan.dta).

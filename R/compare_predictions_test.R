@@ -14,7 +14,7 @@
 #'     # ties from the compare_predictions simulations
 #' compare_predictions_plot(predict_out)
 #'
-#' # We can also conduct a KS test to determine if the FERGM fit it statistically disginguishable
+#' # We can also conduct a KS test to determine if the FERGM fit it statistically distinguishable
 #'      from the ERGM fit
 #' compare_predictions_test(predict_out)
 #' }

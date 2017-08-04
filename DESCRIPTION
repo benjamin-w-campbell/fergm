@@ -8,7 +8,7 @@ Author: Benjamin W. Campbell [aut, cre],
   Jason W. Morgan [ctb],
   Dino P. Christenson [ctb]
 Maintainer: Benjamin W. Campbell <campbell.1721@osu.edu>
-Description: Frailty Exponential Random Graph Models estimated through pseudo likleihood estimation with frailty terms estimated using STAN.
+Description: Frailty Exponential Random Graph Models estimated through pseudo likelihood with frailty terms estimated using STAN.
     Goodness of fit for Frailty Exponential Random Graph Models is also available, with easy visualizations for comparison to fit Exponential Random Graph Models. 
 URL: http://github.com/benjamin-w-campbell/fergm
 Depends: 
