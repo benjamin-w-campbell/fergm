@@ -10,7 +10,6 @@ This is the initial submission of this package for consideration.
 ## Test environments
 * local OS X install, R 3.3.3
 * win-builder (devel and release)
-* Ubuntu 12.04 (on travis-ci), R-oldrel, R-release, R-devel
 
 
 ## R CMD check results

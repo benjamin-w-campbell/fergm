@@ -1,7 +1,7 @@
 Package: fergm
 Date: 2017-08-02
 Type: Package
-Title: Estimation and Fit Assessment of Frailty Exponential Random Graph Models (FERGM)
+Title: Estimation and Fit Assessment of Frailty Exponential Random Graph Models
 Version: 0.2.0
 Authors@R: c(person(given = c("Benjamin", "W."), family = "Campbell", email = "campbell.1721@osu.edu", role = c("aut", "cre")), person(given = c("Jason", "W."), family = "Morgan", role = "ctb"), person(given = c("Dino", "P."), family = "Christenson", role = "ctb"))
 Author: Benjamin W. Campbell [aut, cre],
