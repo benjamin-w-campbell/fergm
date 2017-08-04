@@ -18,7 +18,7 @@ fergm(net = NULL, form = NULL, seed = 12345, chains = 4, warmup = 100,
 
 \item{warmup}{The number of warm up or burn-in iterations that should be used before posterior draws are taken.  Defaults to 100.}
 
-\item{iter}{The number of total number of samples that should be taken including warmups  Defaults to 600 total iterations, leading to a posterior sample size of 500.}
+\item{iter}{The number of total number of samples that should be taken including warm ups  Defaults to 600 total iterations, leading to a posterior sample size of 500.}
 
 \item{cores}{The number of cores to used should parallel processing be desired.  Defaults to 1.}
 }

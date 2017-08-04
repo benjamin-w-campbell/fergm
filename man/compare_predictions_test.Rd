@@ -2,7 +2,7 @@
 % Please edit documentation in R/compare_predictions_test.R
 \name{compare_predictions_test}
 \alias{compare_predictions_test}
-\title{Determine whether the percentage of ties correctly predicted by the FERGM are statistically disguishable from those of the ERGM}
+\title{Determine whether the percentage of ties correctly predicted by the FERGM are statistically distinguishable from those of the ERGM}
 \usage{
 compare_predictions_test(compare_predictions_out = NULL, alpha_level = 0.05)
 }
