@@ -1,0 +1,34 @@
+Package: fergm
+Date: 2017-08-02
+Type: Package
+Title: Estimation and Fit Assessment of Frailty Exponential Random Graph Models (FERGM)
+Version: 0.2.0
+Authors@R: c(person(given = c("Benjamin", "W."), family = "Campbell", email = "campbell.1721@osu.edu", role = c("aut", "cre")), person(given = c("Jason", "W."), family = "Morgan", role = "ctb"), person(given = c("Dino", "P."), family = "Christenson", role = "ctb"))
+Author: Benjamin W. Campbell [aut, cre],
+  Jason W. Morgan [ctb],
+  Dino P. Christenson [ctb]
+Maintainer: Benjamin W. Campbell <campbell.1721@osu.edu>
+Description: Frailty Exponential Random Graph Models estimated through pseudo likleihood estimation with frailty terms estimated using STAN.
+    Goodness of fit for Frailty Exponential Random Graph Models is also available, with easy visualizations for comparison to fit Exponential Random Graph Models. 
+URL: http://github.com/benjamin-w-campbell/fergm
+Depends: 
+  R (>= 3.3.3),
+  rstan (>= 2.16.2),
+  statnet (>= 2016.9),
+  ggplot2 (>= 2.2.1),
+ parallel (>= 3.3.3)
+Imports:
+ stringr (>= 1.2.0),
+ extrafont (>= 0.17),
+ scales (>= 0.4.1),
+  matrixStats (>= 0.52.2),
+  reshape2 (>= 1.4.2),
+  ergm (>= 3.7.1),
+  network (>= 1.13.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1.9000
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

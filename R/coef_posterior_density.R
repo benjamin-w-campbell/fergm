@@ -1,0 +1,62 @@
+#' Plots the posterior density for the fergm model terms
+#'
+#' This function allows the users to examine the posterior density of FERGM model terms.
+#' @param fergm.fit Output object from the fergm function.
+#' @param custom_var_names Custom variable names to use that match the order of the form object passed to FERGM.
+#' @return This prints a list of posterior density plots.
+#' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
+#' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
+#' @keywords FERGM interpret summary
+#' @examples
+#'\dontrun{
+#' # You can also look at the density of particular variables
+#'   # using the following built in rstan functions:
+#' plot(fergm.fit$stan.fit, par = "beta")
+#' # Histogram of the posterior
+#' stan_hist(fergm.fit$stan.fit, par = "beta")
+#' # Density of the posteriors
+#' stan_dens(fergm.fit$stan.fit, par = "beta")
+#'
+#' # We have a cleaner function to look at the posterior densities
+#' densities <- coef_posterior_density(fergm.fit = fergm.fit,
+#' custom_var_names = c("Edges", "Sex Homophily", "Grade Homophily", "Race Homophily",
+#' "GWESP", "Alternating K-Stars"))
+#' densities[[1]]
+#' densities[[2]]
+#' }
+#' @export
+
+coef_posterior_density <- function(fergm.fit = NULL, custom_var_names = NULL){
+  its <- rstan::extract(fergm.fit$stan.fit)$beta
+
+  plot_list <- list()
+
+  for(i in 1:ncol(its))
+    local({
+      i <- i
+    ts <- its[,i]
+    plot_df <- data.frame(values = ts)
+    plot_df <- reshape2::melt(plot_df)
+    var <- custom_var_names[i]
+
+    pl <- ggplot(data = plot_df, aes(x = plot_df$value)) +
+      geom_density(aes(x=plot_df$value, y=..scaled..), alpha = 0.5, fill = "firebrick4", color = "firebrick4") +
+      xlab("Effect Value") +
+      ylab("Scaled Density") +
+      ggtitle(var) +
+      #cale_fill_manual(values=c("firebrick4", "dodgerblue4"),
+                        #name="Model",
+                       # breaks=c("pct_correct_ergm", "pct_correct_fergm"),
+                        #labels=c("ERGM", "FERGM")) +
+     # scale_color_manual(values=c("firebrick4", "dodgerblue4"),
+                        # name="Model",
+                        # breaks=c("pct_correct_ergm", "pct_correct_fergm"),
+                        # labels=c("ERGM", "FERGM")) +
+    #  geom_vline(xintercept=0) +
+      theme_bw() +
+      theme(axis.text=element_text(size=12),
+            axis.title=element_text(size=14,face="bold"))
+    plot_list[[i]] <<- pl
+  })
+  return(plot_list)
+}
