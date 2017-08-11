@@ -6,18 +6,12 @@
 #' @keywords Fit GOF Prediction KS Kolmogorov-Smirnov Test
 #' @return Returns a ks.test output to determine if the ERGM predictions are less than the FERGM predictions and prints a message to assist with interpretation
 #' @examples
-#' \dontrun{
 #' # Use built in compare_predictions function to compare predictions of ERGM and FERGM
-#' predict_out <- compare_predictions(ergm_fit = mesa.fit, fergm_fit = fergm.fit)
+#' predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit)
 #'
-#' # Use the built in compare_predictions_plot function to examine the densities of correctly predicted
-#'     # ties from the compare_predictions simulations
-#' compare_predictions_plot(predict_out)
-#'
-#' # We can also conduct a KS test to determine if the FERGM fit it statistically distinguishable
-#'      from the ERGM fit
+#' # We can also conduct a KS test to determine if the FERGM fit it statistically
+#'  # distinguishable from the ERGM fit
 #' compare_predictions_test(predict_out)
-#' }
 #' @export
 #'
 

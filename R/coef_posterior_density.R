@@ -8,7 +8,6 @@
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @keywords FERGM interpret summary
 #' @examples
-#'\dontrun{
 #' # You can also look at the density of particular variables
 #'   # using the following built in rstan functions:
 #' plot(fergm.fit$stan.fit, par = "beta")
@@ -23,7 +22,6 @@
 #' "GWESP", "Alternating K-Stars"))
 #' densities[[1]]
 #' densities[[2]]
-#' }
 #' @export
 
 coef_posterior_density <- function(fergm.fit = NULL, custom_var_names = NULL){

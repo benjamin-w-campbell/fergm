@@ -20,15 +20,13 @@ This prints a coefficient "rope ladder" plot
 This function allows the users to compare the coefficients of ERGMs and FERGMs
 }
 \examples{
-\dontrun{
 # Compare substantive implications via coef plot, these are with 95\% credible intervals
-coef_plot(fergm.fit = fergm.fit, ergm.fit = mesa.fit,
+coef_plot(fergm.fit = fergm.fit, ergm.fit = ergm.fit,
 custom_var_names =  c("Edges", "Sex Homophily", "Grade Homophily",
 "Race Homophily", "GWESP", "Alternating K-Stars"))
 coef_plot(fergm.fit = fergm.fit,
 custom_var_names =  c("Edges", "Sex Homophily", "Grade Homophily",
 "Race Homophily", "GWESP", "Alternating K-Stars"))
-}
 }
 \references{
 Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.

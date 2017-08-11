@@ -6,16 +6,12 @@
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @example
-#' \dontrun{
 #' # Use built in compare_predictions function to compare predictions of ERGM and FERGM
-#' predict_out <- compare_predictions(ergm_fit = mesa.fit, fergm_fit = fergm.fit)
+#' predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit)
 #' # Use the built in compare_predictions_plot function to examine the densities of correctly predicted
 #'     # ties from the compare_predictions simulations
 #' compare_predictions_plot(predict_out)
 #'
-#' # We can also conduct a KS test to determine if the FERGM fit it statistically disginguishable from the ERGM fit
-#' compare_predictions_test(predict_out)
-#' }
 #' @export
 
 compare_predictions_plot <- function(compare_predictions_out = NULL){

@@ -23,9 +23,8 @@ The compare_predictions function returns a matrix reflecting the number of corre
 This function allows you to assess the importance of the frailty term in prediction
 }
 \examples{
-\dontrun{
 # Use built in compare_predictions function to compare predictions of ERGM and FERGM
-predict_out <- compare_predictions(ergm_fit = mesa.fit, fergm_fit = fergm.fit)
+predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit, replications = 100)
 
 # Use the built in compare_predictions_plot function to examine the densities of correctly predicted
     # ties from the compare_predictions simulations
@@ -34,7 +33,6 @@ compare_predictions_plot(predict_out)
 # We can also conduct a KS test to determine if the FERGM fit
      # it statistically disginguishable from the ERGM fit
 compare_predictions_test(predict_out)
-}
 }
 \references{
 Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.

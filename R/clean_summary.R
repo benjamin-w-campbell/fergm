@@ -9,7 +9,6 @@
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @examples
-#' \dontrun{
 #' # The fergm.fit$stan.fit object is of class stanfit.
 #'    # We keep it this way such that users can rely upon
 #'    # conventional stan functions for interpretation
@@ -20,13 +19,15 @@
 #' beta_df <- stan.smry[grep("beta", rownames(stan.smry)),]
 #' est <- round(beta_df[,c(1,4,8)], 3)
 #' est # in order of "form"
+#' form = c("edges + nodematch('Sex') + nodematch('Grade', diff = FALSE) +
+#'          nodematch('Race', diff = FALSE) +  gwesp(decay = 0.2, fixed = TRUE) +
+#'          altkstar(lambda = 0.6, fixed = TRUE)")
 #'
 #'   # We have a built in function to do this simply
 #' est <- clean_summary(fergm.fit, form = form)
 #' est <- clean_summary(fergm.fit,
 #' custom_var_names = c("Edges", "Sex Homophily", "Grade Homophily",
 #' "Race Homophily", "GWESP", "Alternating K-Stars"))
-#'}
 #' @export
 
 clean_summary <- function(fergm.fit = NULL, form = NULL, custom_var_names = NULL){

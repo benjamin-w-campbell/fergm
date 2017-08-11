@@ -18,7 +18,6 @@ This prints a list of posterior density plots.
 This function allows the users to examine the posterior density of FERGM model terms.
 }
 \examples{
-\dontrun{
 # You can also look at the density of particular variables
   # using the following built in rstan functions:
 plot(fergm.fit$stan.fit, par = "beta")
@@ -33,7 +32,6 @@ custom_var_names = c("Edges", "Sex Homophily", "Grade Homophily", "Race Homophil
 "GWESP", "Alternating K-Stars"))
 densities[[1]]
 densities[[2]]
-}
 }
 \references{
 Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
