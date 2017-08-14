@@ -13,6 +13,6 @@ This is the output of a call to the ergm function fit with with an edge term,
   sex, grade, and race homophily, GWESP, and alternating k-stars.  Fit according to the vignette "mesaHighVignette".
 }
 \references{
-Hunter et al. (2008) ergm: A package to fit, simulate and diagnose exponential-family models for networks. Journal of Statistical Softwre 24(3).
+Hunter et al. (2008) ergm: A package to fit, simulate and diagnose exponential-family models for networks. Journal of Statistical Software 24(3).
 }
 \keyword{datasets}

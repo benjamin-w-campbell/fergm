@@ -11,6 +11,6 @@
 #'
 #' @keywords datasets
 #'
-#' @references Hunter et al. (2008) ergm: A package to fit, simulate and diagnose exponential-family models for networks. Journal of Statistical Softwre 24(3).
+#' @references Hunter et al. (2008) ergm: A package to fit, simulate and diagnose exponential-family models for networks. Journal of Statistical Software 24(3).
 #'
 "ergm.fit"

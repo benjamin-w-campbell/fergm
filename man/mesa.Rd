@@ -12,6 +12,6 @@ data(mesa)
 This is a network included in Hunter et al. (2008) that represents a simulated in-school friendship network.
 }
 \references{
-Hunter et al. (2008) ergm: A package to fit, simulate and diagnose exponential-family models for networks. Journal of Statistical Softwre 24(3).
+Hunter et al. (2008) ergm: A package to fit, simulate and diagnose exponential-family models for networks. Journal of Statistical Software 24(3).
 }
 \keyword{datasets}
