@@ -1,7 +1,7 @@
 #' Output from an Exponential Random Graph Model fit on the Mesa High Network (Hunter et. al, 2008)
 #'
 #' This is the output of a call to the ergm function fit with with an edge term,
-#'   sex, grade, and race homophily, GWESP, and alternating k-stars.
+#'   sex, grade, and race homophily, GWESP, and alternating k-stars.  Fit according to the vignette "mesaHighVignette".
 #'
 #' @docType data
 #'
