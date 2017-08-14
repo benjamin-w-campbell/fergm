@@ -1,7 +1,7 @@
 ---
 title: "cran-comments.md"
 author: Benjamin W. Campbell
-date: August 2, 2017
+date: August 14, 2017
 output: md_document
 ---
 
