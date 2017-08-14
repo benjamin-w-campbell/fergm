@@ -20,6 +20,10 @@ This prints a coefficient "rope ladder" plot
 This function allows the users to compare the coefficients of ERGMs and FERGMs
 }
 \examples{
+# load example data
+data("ergm.fit")
+data("fergm.fit")
+data("mesa")
 # Compare substantive implications via coef plot, these are with 95\% credible intervals
 coef_plot(fergm.fit = fergm.fit, ergm.fit = ergm.fit,
 custom_var_names =  c("Edges", "Sex Homophily", "Grade Homophily",

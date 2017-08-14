@@ -9,6 +9,10 @@
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @examples
+#' # load example data
+#' data("ergm.fit")
+#' data("fergm.fit")
+#' data("mesa")
 #' # Compare substantive implications via coef plot, these are with 95% credible intervals
 #' coef_plot(fergm.fit = fergm.fit, ergm.fit = ergm.fit,
 #' custom_var_names =  c("Edges", "Sex Homophily", "Grade Homophily",

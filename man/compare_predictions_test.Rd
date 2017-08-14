@@ -18,8 +18,14 @@ Returns a ks.test output to determine if the ERGM predictions are less than the 
 This is a plot function to determine whether the distributions of predictions from ERGM and FERGM objects differ.
 }
 \examples{
-# Use built in compare_predictions function to compare predictions of ERGM and FERGM
-predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit)
+# load example data
+data("ergm.fit")
+data("fergm.fit")
+data("mesa")
+# Use built in compare_predictions function to compare predictions of ERGM and FERGM,
+# few replications due to example
+predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit,
+                                   replications = 10)
 
 # We can also conduct a KS test to determine if the FERGM fit it statistically
  # distinguishable from the ERGM fit

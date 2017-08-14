@@ -26,6 +26,11 @@ This function allows you to to take a stan object and return a clean summary of 
    # getting posterior distributions from the fergm
 
    # Conventional rstan summary call
+
+ # load example data
+data("ergm.fit")
+data("fergm.fit")
+data("mesa")
 stan.smry <- summary(fergm.fit$stan.fit)$summary
 beta_df <- stan.smry[grep("beta", rownames(stan.smry)),]
 est <- round(beta_df[,c(1,4,8)], 3)

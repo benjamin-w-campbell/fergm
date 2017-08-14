@@ -18,6 +18,11 @@ This prints a list of posterior density plots.
 This function allows the users to examine the posterior density of FERGM model terms.
 }
 \examples{
+# load example data
+data("ergm.fit")
+data("fergm.fit")
+data("mesa")
+
 # You can also look at the density of particular variables
   # using the following built in rstan functions:
 plot(fergm.fit$stan.fit, par = "beta")

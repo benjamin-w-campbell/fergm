@@ -21,7 +21,10 @@ This prints a traceplot for the effects of interest
 This function takes a fergm object and plots the time series of each chain per model term.
 }
 \examples{
-\dontrun{
+# load example data
+data("ergm.fit")
+data("fergm.fit")
+data("mesa")
 # Use rstan's built in traceplot function
 trace <- rstan::traceplot(fergm.fit$stan.fit, pars = "beta")
 trace
@@ -31,7 +34,6 @@ fergm_beta_traceplot(fergm.fit,
                     form = NULL,
                     custom_var_names =  c("Edges", "Sex Homophily",
                     "Grade Homophily", "Race Homophily", "GWESP", "Alternating K-Stars"))
-}
 }
 \references{
 Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
