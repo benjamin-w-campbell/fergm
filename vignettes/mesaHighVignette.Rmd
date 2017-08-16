@@ -60,7 +60,7 @@ While there is not a built in `summary()` function for the FERGM, there are seve
 
 In addition, we provide a built-in function to create coefficient plots: `coef_plot()`.  This function takes either an `fergm` object to plot the FERGM coefficients or both an `fergm` and `ergm` object to compare these coefficients.  
 
-We also include a built-in function to plot the densities for each coefficient of interest: The code is as follows:
+We also include a built-in function to plot the densities for each coefficient of interest. The code is as follows:
 
 ```{r, echo = TRUE, eval = FALSE}
 # Conventional rstan approach to extracting posterior summary
@@ -114,7 +114,7 @@ fergm_beta_traceplot(fergm.fit,
 
 Additional diagnostics are available using the `rstan` package, and we would refer the reader to their well-composed vignette for further diagnostics or details on their built in diagnostic plots.  
 
-## Compare ERGM ad FERGM Fit
+## Compare ERGM and FERGM Fit
 One might be interested in the relative difference between the fit of an ERGM and an FERGM.  While the `coef_plot()` function offers an opportunity to compare the coefficients of these two models, it does not provide a means to assess the relative fit of each model.  The primary way relative fit is examined is through simulating a number of networks based upon the model results and examining the average number of correctly predicted ties across all simulated networks.  This routine is described by the manuscript presenting the model [@box2017modeling].  The code to perform this routine is as follows:
 
 ```{r, echo = TRUE, eval = FALSE}
