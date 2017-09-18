@@ -49,6 +49,8 @@ compare_predictions_test <- function(compare_predictions_out = NULL, alpha_level
 
   ks.test.out$data.name <- c("ERGM and FERGM percent of correctly predicted ties inhereted from the output of the compare_predictions function")
 
+  return(ks.test.out)
+
 
 }
 

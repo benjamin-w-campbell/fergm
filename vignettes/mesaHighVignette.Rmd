@@ -10,7 +10,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 ## Vignette Info and Introduction
-This vignette uses the `faux.mesa.high` data from Handock, Hunter, Butts, and Goodreau and the `ergm` package to provide an example of the basic functionality of the `fergm` package [@hunter2008ergm].  In particular, it walks through estimating a well-fitting Exponential Random Graph (ERGM) model on the simulated "Mesa High" network.  Once estimated, the corresponding Frailty Exponential Random Graph (FERGM) model is estimated and then compard to its ERGM counterpart.  The documentation for each individual function includes chunks of code taken from this vignette.  
+This vignette uses the `faux.mesa.high` data from Handock, Hunter, Butts, and Goodreau and the `ergm` package to provide an example of the basic functionality of the `fergm` package [@hunter2008ergm].  In particular, it walks through estimating a well-fitting Exponential Random Graph (ERGM) model on the simulated "Mesa High" network.  Once estimated, the corresponding Frailty Exponential Random Graph (FERGM) model is estimated and then compared to its ERGM counterpart.  The documentation for each individual function includes chunks of code taken from this vignette.  
 
 It is worth noting that many of these functions are built upon the `rstan` package [@guo2016rstan].  Given that the output of the `fergm` function is a `stanfit` object, one may use much of the built-in functionality of the `rstan` function should they be familiar with the package.  
 
