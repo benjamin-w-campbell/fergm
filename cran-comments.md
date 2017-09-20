@@ -13,11 +13,7 @@ This is a patch release to fix a bug in the compare_predictions_test argument an
 
 
 ## R CMD check results
-0 errors | 0 warnings | 1 notes
-
-### Notes
-The only note refers to the maintainer to ensure that the person submitting the package is the maintainer.
-
+0 errors | 0 warnings | 0 notes
 
 ## Downstream dependencies
 There are currently no downstream dependencies for this package. 
