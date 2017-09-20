@@ -1,10 +1,10 @@
-#' Plots the coefficients of FERGM and potentially ERGM objects.
+#' Plots the coefficients of FERGM and ERGM objects.
 #'
-#' This function allows the users to compare the coefficients of ERGMs and FERGMs
-#' @param fergm.fit Output object from the fergm function.
-#' @param ergm.fit An ergm object containing the same model terms as the fergm object in the same formula order
-#' @param custom_var_names Custom variable names to use that match the order of the form object passed to FERGM.
-#' @return This prints a coefficient "rope ladder" plot
+#' This function allows the users to visualize FERGM estimates or to compare the coefficients of ERGMs and FERGMs.
+#' @param fergm.fit A model object returned by the \code{fergm} function.  Must be specified.
+#' @param ergm.fit A model object returned by the \code{ergm} function.  May be specified when comparing ERGM and FERGM coefficients.
+#' @param custom_var_names A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.
+#' @return This function produces a coefficient rope-ladder plot containing 95\% confidence intervals using ggplot2.  The function either takes \code{fergm} model output or \code{fergm} and \code{ergm} model output.  The former is effective in summarizing \code{fergm} model output while the latter is effective in comparing FERGM and ERGM estimates.
 #' @keywords FERGM interpret summary
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
@@ -24,6 +24,11 @@
 
 coef_plot <- function(fergm.fit = NULL, ergm.fit = NULL, custom_var_names = NULL){
   its <- rstan::extract(fergm.fit$stan.fit)$beta
+
+  if(is.null(custom_var_names)){
+    custom_var_names <- fergm.fit$form
+    custom_var_names <- stringr::str_replace_all(string = unlist(strsplit(custom_var_names, "[+]")), pattern=" ", repl="")
+  }
 
   fergm_df <- cbind(as.data.frame(colMeans(its)), as.data.frame(matrixStats::colQuantiles(its, probs = c(0.025, 0.975))))
   colnames(fergm_df)[1] <- "mean"

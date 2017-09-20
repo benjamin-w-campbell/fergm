@@ -1,4 +1,4 @@
-#' Mesa High Network (Hunter et. al, 2008)
+#' Mesa High Network (Hunter et. al, 2008).
 #'
 #' This is a network included in Hunter et al. (2008) that represents a simulated in-school friendship network.
 #'

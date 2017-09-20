@@ -23,7 +23,7 @@ fergm(net = NULL, form = NULL, seed = 12345, chains = 4, warmup = 100,
 \item{cores}{The number of cores to used should parallel processing be desired.  Defaults to 1.}
 }
 \value{
-This function returns a list that includes the Stan output (stan.fit) and the data object passed to Stan (stan.dta).
+This function returns a list that includes the Stan output (stan.fit), the data object passed to Stan (stan.dta), and the original formula (form).
 }
 \description{
 This function estimates a FERGM

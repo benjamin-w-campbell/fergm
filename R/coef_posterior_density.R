@@ -1,9 +1,9 @@
-#' Plots the posterior density for the fergm model terms
+#' Plots the posterior density for FERGM model terms.
 #'
 #' This function allows the users to examine the posterior density of FERGM model terms.
-#' @param fergm.fit Output object from the fergm function.
-#' @param custom_var_names Custom variable names to use that match the order of the form object passed to FERGM.
-#' @return This prints a list of posterior density plots.
+#' @param fergm.fit A model object returned by the \code{fergm} function.  Must be specified.
+#' @param custom_var_names A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.
+#' @return This prints a list of posterior density plots produced using ggplot2.
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @keywords FERGM interpret summary
@@ -31,6 +31,11 @@
 
 coef_posterior_density <- function(fergm.fit = NULL, custom_var_names = NULL){
   its <- rstan::extract(fergm.fit$stan.fit)$beta
+
+  if(is.null(custom_var_names)){
+    custom_var_names <- fergm.fit$form
+    custom_var_names <- stringr::str_replace_all(string = unlist(strsplit(custom_var_names, "[+]")), pattern=" ", repl="")
+  }
 
   plot_list <- list()
 

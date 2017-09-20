@@ -1,8 +1,8 @@
-#' Compare FERGM to ERGM to assess accuracy in tie prediction
+#' Compare predictions of ERGM to FERGM.
 #'
-#' This function allows you to assess the importance of the frailty term in prediction
-#' @param ergm_fit An ERGM object that will be compared to the FERGM fit.
-#' @param fergm_fit The output of the fergm function that will be compared to the ERGM fit.
+#' This function allows you to assess the importance of the frailty term in prediction by comparing the predictivev accuracy of an ERGM to an FERGM.
+#' @param ergm.fit A model object returned by the \code{ergm} function.  Must be specified.
+#' @param fergm.fit A model object returned by the \code{fergm} function.  Must be specified.
 #' @param seed An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.
 #' @param replications The number of networks to be simulated to assess predictions. Defaults to 500.
 #' @keywords Fit GOF Prediction.

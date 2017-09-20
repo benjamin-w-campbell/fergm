@@ -8,7 +8,7 @@
 #' @param warmup The number of warm up or burn-in iterations that should be used before posterior draws are taken.  Defaults to 100.
 #' @param iter The number of total number of samples that should be taken including warm ups  Defaults to 600 total iterations, leading to a posterior sample size of 500.
 #' @param cores The number of cores to used should parallel processing be desired.  Defaults to 1.
-#' @return This function returns a list that includes the Stan output (stan.fit) and the data object passed to Stan (stan.dta).
+#' @return This function returns a list that includes the Stan output (stan.fit), the data object passed to Stan (stan.dta), and the original formula (form).
 #' @keywords FERGM
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
@@ -177,6 +177,6 @@ fergm <- function(net = NULL, form = NULL, seed = 12345, chains = 4, warmup = 10
   stan.fit <- stan(model_code = scode,
                    data=stan.dta, chains=chains, seed=seed, warmup=warmup, iter=iter)
 
-  return(list(stan.fit = stan.fit, stan.dta = stan.dta))
+  return(list(stan.fit = stan.fit, stan.dta = stan.dta, form = form))
 
 }

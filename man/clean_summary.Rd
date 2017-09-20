@@ -4,20 +4,18 @@
 \alias{clean_summary}
 \title{Clean summary of stan output}
 \usage{
-clean_summary(fergm.fit = NULL, form = NULL, custom_var_names = NULL)
+clean_summary(fergm.fit = NULL, custom_var_names = NULL)
 }
 \arguments{
 \item{fergm.fit}{The returned output object of the fergm() function.  Null by default}
 
-\item{form}{The right hand side formula specified for the FERGM function.}
-
-\item{custom_var_names}{A vector of custom variable names in the order of the form object.}
+\item{custom_var_names}{Custom variable names to use that match the order of the form object passed to FERGM.  If not provided, defaults to names inhereted by fergm.fit.}
 }
 \value{
 This prints a matrix summarizing the posterior distribution
 }
 \description{
-This function allows you to to take a stan object and return a clean summary of the posterior distribution
+This function allows you to to take a \code{stan} object and return a clean summary of the posterior distribution
 }
 \examples{
 # The fergm.fit$stan.fit object is of class stanfit.

@@ -11,7 +11,7 @@ coef_plot(fergm.fit = NULL, ergm.fit = NULL, custom_var_names = NULL)
 
 \item{ergm.fit}{An ergm object containing the same model terms as the fergm object in the same formula order}
 
-\item{custom_var_names}{Custom variable names to use that match the order of the form object passed to FERGM.}
+\item{custom_var_names}{Custom variable names to use that match the order of the form object passed to FERGM.  If not provided, defaults to names inhereted by fergm.fit.}
 }
 \value{
 This prints a coefficient "rope ladder" plot

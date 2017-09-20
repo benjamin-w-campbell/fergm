@@ -4,8 +4,7 @@
 \alias{fergm_beta_traceplot}
 \title{Plot traceplots for model terms.}
 \usage{
-fergm_beta_traceplot(fergm.fit = NULL, custom_var_names = NULL,
-  form = NULL)
+fergm_beta_traceplot(fergm.fit = NULL, custom_var_names = NULL)
 }
 \arguments{
 \item{fergm.fit}{Output object from the fergm function.}

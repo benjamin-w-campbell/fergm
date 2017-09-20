@@ -1,10 +1,9 @@
-#' Clean summary of stan output
+#' Clean posterior description of FERGM.
 #'
-#' This function allows you to to take a stan object and return a clean summary of the posterior distribution
-#' @param fergm.fit The returned output object of the fergm() function.  Null by default
-#' @param form The right hand side formula specified for the FERGM function.
-#' @param custom_var_names A vector of custom variable names in the order of the form object.
-#' @return This prints a matrix summarizing the posterior distribution
+#' This function takes a \code{stan} object and return a clean summary of the posterior distribution.
+#' @param fergm.fit A model object returned by the \code{fergm} function.  Must be specified.
+#' @param custom_var_names A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.
+#' @return This function returns a matrix summarizing the posterior distribution, including variable names, posterior means, and 95% credible intervals.
 #' @keywords FERGM interpret summary
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
@@ -23,20 +22,17 @@
 #' stan.smry <- summary(fergm.fit$stan.fit)$summary
 #' beta_df <- stan.smry[grep("beta", rownames(stan.smry)),]
 #' est <- round(beta_df[,c(1,4,8)], 3)
-#' est # in order of "form"
-#' form = c("edges + nodematch('Sex') + nodematch('Grade', diff = FALSE) +
-#'          nodematch('Race', diff = FALSE) +  gwesp(decay = 0.2, fixed = TRUE) +
-#'          altkstar(lambda = 0.6, fixed = TRUE)")
 #'
 #'   # We have a built in function to do this simply
-#' est <- clean_summary(fergm.fit, form = form)
+#' est <- clean_summary(fergm.fit)
 #' est <- clean_summary(fergm.fit,
 #' custom_var_names = c("Edges", "Sex Homophily", "Grade Homophily",
 #' "Race Homophily", "GWESP", "Alternating K-Stars"))
 #' @export
 
-clean_summary <- function(fergm.fit = NULL, form = NULL, custom_var_names = NULL){
+clean_summary <- function(fergm.fit = NULL, custom_var_names = NULL){
   its <- rstan::extract(fergm.fit$stan.fit)$beta
+  form <- fergm.fit$form
 
   fergm_df <- cbind(as.data.frame(colMeans(its)), as.data.frame(matrixStats::colQuantiles(its, probs = c(0.025, 0.975))))
   colnames(fergm_df)[1] <- "mean"
@@ -46,7 +42,5 @@ clean_summary <- function(fergm.fit = NULL, form = NULL, custom_var_names = NULL
   } else {
     rownames(fergm_df) <- stringr::str_replace_all(string = unlist(strsplit(form, "[+]")), pattern=" ", repl="")
   }
-
-  print(fergm_df)
   return(fergm_df)
 }
