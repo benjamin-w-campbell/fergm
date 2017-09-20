@@ -3,7 +3,7 @@
 #' This function allows the users to visualize FERGM estimates or to compare the coefficients of ERGMs and FERGMs.
 #' @param fergm.fit A model object returned by the \code{fergm} function.  Must be specified.
 #' @param ergm.fit A model object returned by the \code{ergm} function.  May be specified when comparing ERGM and FERGM coefficients.
-#' @param custom_var_names A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.
+#' @param custom_var_names A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inherited by \code{fergm.fit}.
 #' @return This function produces a coefficient rope-ladder plot containing 95\% confidence intervals using ggplot2.  The function either takes \code{fergm} model output or \code{fergm} and \code{ergm} model output.  The former is effective in summarizing \code{fergm} model output while the latter is effective in comparing FERGM and ERGM estimates.
 #' @keywords FERGM interpret summary
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.

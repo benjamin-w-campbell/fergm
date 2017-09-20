@@ -1,6 +1,6 @@
 #' Compare predictions of ERGM to FERGM.
 #'
-#' This function allows you to assess the importance of the frailty term in prediction by comparing the predictivev accuracy of an ERGM to an FERGM.
+#' This function allows you to assess the importance of the frailty term in prediction by comparing the predictive accuracy of an ERGM to an FERGM.
 #' @param ergm.fit A model object returned by the \code{ergm} function.  Must be specified.
 #' @param fergm.fit A model object returned by the \code{fergm} function.  Must be specified.
 #' @param seed An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.
