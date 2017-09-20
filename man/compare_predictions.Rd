@@ -20,7 +20,7 @@ compare_predictions(ergm.fit = NULL, fergm.fit = NULL, seed = 12345,
 The compare_predictions function returns a matrix reflecting the number of correctly predicted ties for the ERGM and FERGM for each network simulated.
 }
 \description{
-This function allows you to assess the importance of the frailty term in prediction by comparing the predictivev accuracy of an ERGM to an FERGM.
+This function allows you to assess the importance of the frailty term in prediction by comparing the predictive accuracy of an ERGM to an FERGM.
 }
 \examples{
 # load example data

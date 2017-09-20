@@ -9,7 +9,7 @@ coef_posterior_density(fergm.fit = NULL, custom_var_names = NULL)
 \arguments{
 \item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
 
-\item{custom_var_names}{A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.}
+\item{custom_var_names}{A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inherited by \code{fergm.fit}.}
 }
 \value{
 This prints a list of posterior density plots produced using ggplot2.

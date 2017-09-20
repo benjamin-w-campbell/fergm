@@ -11,7 +11,7 @@ coef_plot(fergm.fit = NULL, ergm.fit = NULL, custom_var_names = NULL)
 
 \item{ergm.fit}{A model object returned by the \code{ergm} function.  May be specified when comparing ERGM and FERGM coefficients.}
 
-\item{custom_var_names}{A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.}
+\item{custom_var_names}{A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inherited by \code{fergm.fit}.}
 }
 \value{
 This function produces a coefficient rope-ladder plot containing 95\% confidence intervals using ggplot2.  The function either takes \code{fergm} model output or \code{fergm} and \code{ergm} model output.  The former is effective in summarizing \code{fergm} model output while the latter is effective in comparing FERGM and ERGM estimates.
