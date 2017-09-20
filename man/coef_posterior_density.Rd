@@ -2,17 +2,17 @@
 % Please edit documentation in R/coef_posterior_density.R
 \name{coef_posterior_density}
 \alias{coef_posterior_density}
-\title{Plots the posterior density for the fergm model terms}
+\title{Plots the posterior density for FERGM model terms.}
 \usage{
 coef_posterior_density(fergm.fit = NULL, custom_var_names = NULL)
 }
 \arguments{
-\item{fergm.fit}{Output object from the fergm function.}
+\item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
 
-\item{custom_var_names}{Custom variable names to use that match the order of the form object passed to FERGM.  If not provided, defaults to names inhereted by fergm.fit.}
+\item{custom_var_names}{A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.}
 }
 \value{
-This prints a list of posterior density plots.
+This prints a list of posterior density plots produced using ggplot2.
 }
 \description{
 This function allows the users to examine the posterior density of FERGM model terms.

@@ -2,25 +2,25 @@
 % Please edit documentation in R/compare_predictions.R
 \name{compare_predictions}
 \alias{compare_predictions}
-\title{Compare FERGM to ERGM to assess accuracy in tie prediction}
+\title{Compare predictions of ERGM to FERGM.}
 \usage{
 compare_predictions(ergm_fit = NULL, fergm_fit = NULL, seed = 12345,
   replications = 500)
 }
 \arguments{
-\item{ergm_fit}{An ERGM object that will be compared to the FERGM fit.}
-
-\item{fergm_fit}{The output of the fergm function that will be compared to the ERGM fit.}
-
 \item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.}
 
 \item{replications}{The number of networks to be simulated to assess predictions. Defaults to 500.}
+
+\item{ergm.fit}{A model object returned by the \code{ergm} function.  Must be specified.}
+
+\item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
 }
 \value{
 The compare_predictions function returns a matrix reflecting the number of correctly predicted ties for the ERGM and FERGM for each network simulated.
 }
 \description{
-This function allows you to assess the importance of the frailty term in prediction
+This function allows you to assess the importance of the frailty term in prediction by comparing the predictivev accuracy of an ERGM to an FERGM.
 }
 \examples{
 # load example data

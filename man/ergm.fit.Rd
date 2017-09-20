@@ -3,7 +3,7 @@
 \docType{data}
 \name{ergm.fit}
 \alias{ergm.fit}
-\title{Output from an Exponential Random Graph Model fit on the Mesa High Network (Hunter et. al, 2008)}
+\title{Output from an Exponential Random Graph Model fit on the Mesa High Network (Hunter et. al, 2008).}
 \format{An object of class \code{"ergm"}}
 \usage{
 data(ergm.fit)

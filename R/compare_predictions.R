@@ -29,7 +29,7 @@
 #' compare_predictions_test(predict_out)
 #' @export
 
-compare_predictions <- function(ergm_fit = NULL, fergm_fit = NULL, seed = 12345, replications = 500){
+compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = 12345, replications = 500){
   lt <- function(m) { m[lower.tri(m)] }
 
   ergm.pred <- function()

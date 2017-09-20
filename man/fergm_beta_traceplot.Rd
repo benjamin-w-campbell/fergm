@@ -7,17 +7,15 @@
 fergm_beta_traceplot(fergm.fit = NULL, custom_var_names = NULL)
 }
 \arguments{
-\item{fergm.fit}{Output object from the fergm function.}
+\item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
 
-\item{custom_var_names}{If custom variable names are to be used, specify a vector of characters equal to the number of terms used.}
-
-\item{form}{The right hand side formula specified for the FERGM function, custom.var.names takes precedent.}
+\item{custom_var_names}{A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.}
 }
 \value{
-This prints a traceplot for the effects of interest
+This prints a ggplot2 traceplot for the effects of interest.
 }
 \description{
-This function takes a fergm object and plots the time series of each chain per model term.
+This function takes a \code{fergm} object and plots the time series of each chain per model term using ggplot2.
 }
 \examples{
 # load example data
@@ -30,7 +28,6 @@ trace
 
 # We have our own version that includes variable names and tidies it up a bit
 fergm_beta_traceplot(fergm.fit,
-                    form = NULL,
                     custom_var_names =  c("Edges", "Sex Homophily",
                     "Grade Homophily", "Race Homophily", "GWESP", "Alternating K-Stars"))
 }

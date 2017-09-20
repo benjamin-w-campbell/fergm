@@ -2,20 +2,20 @@
 % Please edit documentation in R/clean_summary.R
 \name{clean_summary}
 \alias{clean_summary}
-\title{Clean summary of stan output}
+\title{Clean posterior description of FERGM.}
 \usage{
 clean_summary(fergm.fit = NULL, custom_var_names = NULL)
 }
 \arguments{
-\item{fergm.fit}{The returned output object of the fergm() function.  Null by default}
+\item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
 
-\item{custom_var_names}{Custom variable names to use that match the order of the form object passed to FERGM.  If not provided, defaults to names inhereted by fergm.fit.}
+\item{custom_var_names}{A vector of custom variable names used in presentation that match the order of the \code{form} object passed to \code{fergm}.  If not provided, defaults to names inhereted by \code{fergm.fit}.}
 }
 \value{
-This prints a matrix summarizing the posterior distribution
+This function returns a matrix summarizing the posterior distribution, including variable names, posterior means, and 95% credible intervals.
 }
 \description{
-This function allows you to to take a \code{stan} object and return a clean summary of the posterior distribution
+This function takes a \code{stan} object and return a clean summary of the posterior distribution.
 }
 \examples{
 # The fergm.fit$stan.fit object is of class stanfit.
@@ -32,13 +32,9 @@ data("mesa")
 stan.smry <- summary(fergm.fit$stan.fit)$summary
 beta_df <- stan.smry[grep("beta", rownames(stan.smry)),]
 est <- round(beta_df[,c(1,4,8)], 3)
-est # in order of "form"
-form = c("edges + nodematch('Sex') + nodematch('Grade', diff = FALSE) +
-         nodematch('Race', diff = FALSE) +  gwesp(decay = 0.2, fixed = TRUE) +
-         altkstar(lambda = 0.6, fixed = TRUE)")
 
   # We have a built in function to do this simply
-est <- clean_summary(fergm.fit, form = form)
+est <- clean_summary(fergm.fit)
 est <- clean_summary(fergm.fit,
 custom_var_names = c("Edges", "Sex Homophily", "Grade Homophily",
 "Race Homophily", "GWESP", "Alternating K-Stars"))

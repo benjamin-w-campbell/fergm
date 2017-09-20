@@ -2,20 +2,20 @@
 % Please edit documentation in R/compare_predictions_test.R
 \name{compare_predictions_test}
 \alias{compare_predictions_test}
-\title{Determine whether the percentage of ties correctly predicted by the FERGM are statistically distinguishable from those of the ERGM}
+\title{KS Test for Difference in Predictive Performance}
 \usage{
 compare_predictions_test(compare_predictions_out = NULL, alpha_level = 0.05)
 }
 \arguments{
-\item{compare_predictions_out}{Matrix of correctly predicted ties produced by the compare_predictions function.}
+\item{compare_predictions_out}{Matrix of correctly predicted ties produced by the \code{compare_predictions} function.}
 
 \item{alpha_level}{The significance level that should be used for the test.}
 }
 \value{
-Returns a ks.test output to determine if the ERGM predictions are less than the FERGM predictions and prints a message to assist with interpretation
+Returns \code{ks.test} output to determine if the percent of correctly predicted ERGM ties are less than those of the FERGM and prints a message to assist with interpretation
 }
 \description{
-This is a plot function to determine whether the distributions of predictions from ERGM and FERGM objects differ.
+This is a plot function to determine whether the distributions of predictions from ERGM and FERGM objects differ.  It does so by using a Kolmogorov-Smirnov Test.
 }
 \examples{
 # load example data

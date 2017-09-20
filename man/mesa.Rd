@@ -3,7 +3,7 @@
 \docType{data}
 \name{mesa}
 \alias{mesa}
-\title{Mesa High Network (Hunter et. al, 2008)}
+\title{Mesa High Network (Hunter et. al, 2008).}
 \format{An object of class \code{"network"}}
 \usage{
 data(mesa)
