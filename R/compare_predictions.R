@@ -17,7 +17,7 @@
 #'
 #' # Use built in compare_predictions function to compare predictions of ERGM and FERGM,
 #' # few replications due to example
-#' predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit,
+#' predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit,
 #'                                    replications = 10)
 #'
 #' # Use the built in compare_predictions_plot function to examine the densities of
@@ -34,15 +34,15 @@ compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = 12345,
 
   ergm.pred <- function()
   {
-    flo.truth <- lt(as.matrix(ergm_fit$network))
-    sim.pred <- lt(as.matrix(simulate.ergm(ergm_fit)))
+    flo.truth <- lt(as.matrix(ergm.fit$network))
+    sim.pred <- lt(as.matrix(simulate.ergm(ergm.fit)))
     sum(flo.truth == sim.pred) / 630
   }
 
   pct_correct_ergm <- replicate(replications, ergm.pred())
 
-  stan.dta <- fergm_fit$stan.dta
-  stan.fit <- fergm_fit$stan.fit
+  stan.dta <- fergm.fit$stan.dta
+  stan.fit <- fergm.fit$stan.fit
 
   truth <- stan.dta$y
   predictions <- extract(stan.fit, "predictions")$predictions

@@ -12,7 +12,7 @@
 #' data("mesa")
 #' # Use built in compare_predictions function to compare predictions of ERGM and FERGM,
 #' # few replications due to example.
-#' predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit,
+#' predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit,
 #'                                    replications = 10)
 #' # Use the built in compare_predictions_plot function to examine the densities
 #' # of correctly predicted ties from the compare_predictions simulations

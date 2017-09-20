@@ -4,17 +4,17 @@
 \alias{compare_predictions}
 \title{Compare predictions of ERGM to FERGM.}
 \usage{
-compare_predictions(ergm_fit = NULL, fergm_fit = NULL, seed = 12345,
+compare_predictions(ergm.fit = NULL, fergm.fit = NULL, seed = 12345,
   replications = 500)
 }
 \arguments{
-\item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.}
-
-\item{replications}{The number of networks to be simulated to assess predictions. Defaults to 500.}
-
 \item{ergm.fit}{A model object returned by the \code{ergm} function.  Must be specified.}
 
 \item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
+
+\item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.}
+
+\item{replications}{The number of networks to be simulated to assess predictions. Defaults to 500.}
 }
 \value{
 The compare_predictions function returns a matrix reflecting the number of correctly predicted ties for the ERGM and FERGM for each network simulated.
@@ -30,7 +30,7 @@ data("mesa")
 
 # Use built in compare_predictions function to compare predictions of ERGM and FERGM,
 # few replications due to example
-predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit,
+predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit,
                                    replications = 10)
 
 # Use the built in compare_predictions_plot function to examine the densities of
