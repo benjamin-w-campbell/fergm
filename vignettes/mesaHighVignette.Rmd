@@ -10,7 +10,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 ## Vignette Info and Introduction
-This vignette uses the `faux.mesa.high` network from the `ergm` package to provide an example of the basic functionality of the `fergm` package [@hunter2008ergm].  In particular, it walks through the estimation of a well-fitting Exponential Random Graph (ERGM) model on the simulated "Mesa High" network.  Once estimated, the corresponding Frailty Exponential Random Graph (FERGM) model is estimated and compared to the comparable ERGM.  The documentation for each individual function includes chunks of code taken from this vignette.  
+This vignette uses the faux.mesa.high network from the ergm package [@hunter2008ergm] to provide an example of the basic functionality of the fergm package [@box2018modeling].  In particular, it walks through the estimation of a well-fitting Exponential Random Graph (ERGM) model on the simulated "Mesa High" network.  Once estimated, the corresponding Frailty Exponential Random Graph (FERGM) model is estimated and compared to the comparable ERGM.  The documentation for each individual function includes chunks of code taken from this vignette.  
 
 It is worth noting that many of these functions are built upon the `rstan` package [@guo2016rstan].  Given that the output of the `fergm` function is a `stanfit` object, one may use much of the built-in functionality of the `rstan` package should they be familiar with the package.  
 
@@ -125,7 +125,7 @@ fergm_beta_traceplot(fergm.fit,
 Additional diagnostics are available using the `rstan` package, and we would refer the reader to their well-written manual for further diagnostics or details on their built-in diagnostic plots.  
 
 ## Compare ERGM and FERGM Fit
-One might be interested in the relative difference in predictive performance between an ERGM and an FERGM.  While the `coef_plot()` function offers an opportunity to compare the coefficients of these two models, it does not provide a means to assess the relative fit of each model. Relative fit is examined through simulating a number of networks based upon the model results and examining the average number of correctly predicted ties across all simulated networks.  This routine is described by the manuscript presenting the model [@box2017modeling].  The code to perform this routine is as follows:
+One might be interested in the relative difference in predictive performance between an ERGM and an FERGM.  While the `coef_plot()` function offers an opportunity to compare the coefficients of these two models, it does not provide a means to assess the relative fit of each model. Relative fit is examined through simulating a number of networks based upon the model results and examining the average number of correctly predicted ties across all simulated networks.  This routine is described by the manuscript presenting the model [@box2018modeling].  The code to perform this routine is as follows:
 
 ```{r, echo = TRUE, eval = FALSE}
 # Use fergm built in compare_predictions function to compare predictions of ERGM and FERGM

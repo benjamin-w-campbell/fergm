@@ -10,7 +10,7 @@
 #' @param cores The number of cores to used should parallel processing be desired.  Defaults to 1.
 #' @return This function returns a list that includes the Stan output (stan.fit), the data object passed to Stan (stan.dta), and the original formula (form).
 #' @keywords FERGM
-#' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2017. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}.
+#' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2018. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}. (26)1:3-19.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @examples
 #' \dontrun{
