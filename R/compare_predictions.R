@@ -31,12 +31,13 @@
 
 compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = 12345, replications = 500){
   lt <- function(m) { m[lower.tri(m)] }
+  n_dyads <- choose(ergm.fit$network$gal$n, 2)
 
   ergm.pred <- function()
   {
     flo.truth <- lt(as.matrix(ergm.fit$network))
     sim.pred <- lt(as.matrix(simulate.ergm(ergm.fit)))
-    sum(flo.truth == sim.pred) / 630
+    sum(flo.truth == sim.pred) / n_dyads
   }
 
   pct_correct_ergm <- replicate(replications, ergm.pred())
@@ -48,7 +49,7 @@ compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = 12345,
   predictions <- extract(stan.fit, "predictions")$predictions
 
   pct_correct_fergm <- sapply(1:nrow(predictions),
-                              function(r) sum(truth == predictions[r,]) / 630)
+                              function(r) sum(truth == predictions[r,]) / n_dyads)
 
 
   correct_mat <- cbind(pct_correct_ergm, pct_correct_fergm)
