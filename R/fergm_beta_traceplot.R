@@ -27,8 +27,7 @@ fergm_beta_traceplot <- function(fergm.fit = NULL, custom_var_names = NULL){
   trace <- rstan::traceplot(fergm.fit$stan.fit, pars = "beta")
 
   if(is.null(custom_var_names)){
-    custom_var_names <- fergm.fit$form
-    custom_var_names <- stringr::str_replace_all(string = unlist(strsplit(custom_var_names, "[+]")), pattern=" ", repl="")
+    custom_var_names <- colnames(fergm.fit$stan.dta$x)
   }
 
   var_names <- custom_var_names

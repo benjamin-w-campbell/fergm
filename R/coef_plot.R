@@ -26,8 +26,7 @@ coef_plot <- function(fergm.fit = NULL, ergm.fit = NULL, custom_var_names = NULL
   its <- rstan::extract(fergm.fit$stan.fit)$beta
 
   if(is.null(custom_var_names)){
-    custom_var_names <- fergm.fit$form
-    custom_var_names <- stringr::str_replace_all(string = unlist(strsplit(custom_var_names, "[+]")), pattern=" ", repl="")
+    custom_var_names <- colnames(fergm.fit$stan.dta$x)
   }
 
   fergm_df <- cbind(as.data.frame(colMeans(its)), as.data.frame(matrixStats::colQuantiles(its, probs = c(0.025, 0.975))))

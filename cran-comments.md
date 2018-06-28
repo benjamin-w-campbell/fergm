@@ -1,11 +1,11 @@
 ---
 title: "cran-comments.md"
 author: Benjamin W. Campbell
-date: September 20, 2017
+date: June 26, 2018
 output: md_document
 ---
 
-This is a patch release to fix a bug in the compare_predictions_test argument and to copyedit documentation.
+This is a versioned release to introduce new functionality to existing functions.
 
 ## Test environments
 * local OS X install, R 3.3.3

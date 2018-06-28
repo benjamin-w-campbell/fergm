@@ -40,7 +40,7 @@ clean_summary <- function(fergm.fit = NULL, custom_var_names = NULL){
   if(!is.null(custom_var_names)){
     rownames(fergm_df) <- custom_var_names
   } else {
-    rownames(fergm_df) <- stringr::str_replace_all(string = unlist(strsplit(form, "[+]")), pattern=" ", repl="")
+    rownames(fergm_df) <- colnames(fergm.fit$stan.dta$x)
   }
   return(fergm_df)
 }
