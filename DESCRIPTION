@@ -10,7 +10,7 @@ Description: Frailty Exponential Random Graph Models estimated through pseudo li
     Goodness of fit for Frailty Exponential Random Graph Models is also available, with easy visualizations for comparison to fit Exponential Random Graph Models.  
 URL: http://github.com/benjamin-w-campbell/fergm
 Depends:
-  R (>= 3.3.3),
+  R (>= 3.3),
   rstan (>= 2.16.2),
   statnet (>= 2016.9),
   ggplot2 (>= 2.2.1),
