@@ -3,7 +3,7 @@
 #' This function estimates a FERGM
 #' @param net A network object that is to be explained using the right_hand_vars argument.
 #' @param form A character string specified as "ergm.term1 + ergm.term2", must be terms supported for ERGMs.
-#' @param seed An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.
+#' @param seed An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.  Set to null to prevent internal seed setting.
 #' @param chains An integer that sets the number of Markov chains that should be used by Stan.
 #' @param warmup The number of warm up or burn-in iterations that should be used before posterior draws are taken.  Defaults to 100.
 #' @param iter The number of total number of samples that should be taken including warm ups  Defaults to 600 total iterations, leading to a posterior sample size of 500.
@@ -118,7 +118,15 @@ fergm <- function(net = NULL, form = NULL, seed = 12345, chains = 4, warmup = 10
   }
 
   # Prepare data
-  set.seed(seed)
+  if(!is.null(seed)){
+    set.seed(seed)
+    cat("Setting seed at the default value of 12345 for the seed argument.")
+  } else {
+    warning("Note: This function relies simulation.  Consider specifying a seed to set to ensure replicability.")
+  }
+
+  cat("Starting data preparation")
+
   fergm.dta <- prepare_fergm_data(net, form)
   stan.dta  <- prepare_stan_data(net, fergm.dta)
   stan.dta$x <- as.matrix(stan.dta$x)      # deal with a recent change in rstan

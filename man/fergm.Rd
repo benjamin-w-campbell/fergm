@@ -12,7 +12,7 @@ fergm(net = NULL, form = NULL, seed = 12345, chains = 4, warmup = 100,
 
 \item{form}{A character string specified as "ergm.term1 + ergm.term2", must be terms supported for ERGMs.}
 
-\item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.}
+\item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.  Set to null to prevent internal seed setting.}
 
 \item{chains}{An integer that sets the number of Markov chains that should be used by Stan.}
 
