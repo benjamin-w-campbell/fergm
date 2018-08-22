@@ -13,7 +13,9 @@ This is a versioned release to introduce new functionality to existing functions
 
 
 ## R CMD check results
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 2 notes
+
+Notes refer to the run time of a particular example which takes < 60 s. 
 
 ## Downstream dependencies
 There are currently no downstream dependencies for this package. 

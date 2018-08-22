@@ -3,6 +3,8 @@
 
 * Updated seed setting argument and functionality of `compare_predictions()` to assist in replicability.  
 
+* Updated NAMESPACE and dependencies to avoid upstream deprecation warnings from `statnet`.
+
 # fergm 1.1.1
 * For `compare_predictions()` the denominator used to calculate the percentage of correctly predicted ties was changed from an arbitrary placeholder to the number of dyads within a network.  Prior results based upon this function will be adequate if results were reported as relative (FERGM v. ERGM) comparisons of the percentage of correctly predicted ties.
 
