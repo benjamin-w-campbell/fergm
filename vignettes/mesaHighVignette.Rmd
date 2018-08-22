@@ -129,7 +129,7 @@ One might be interested in the relative difference in predictive performance bet
 
 ```{r, echo = TRUE, eval = FALSE}
 # Use fergm built in compare_predictions function to compare predictions of ERGM and FERGM
-predict_out <- compare_predictions(ergm_fit = ergm.fit, fergm_fit = fergm.fit, replications = 100)
+predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit, replications = 100)
 
 # Use the built in compare_predictions_plot function to examine the densities of correctly predicted
   # ties from the compare_predictions simulations

@@ -4,7 +4,7 @@
 \alias{compare_predictions}
 \title{Compare predictions of ERGM to FERGM.}
 \usage{
-compare_predictions(ergm.fit = NULL, fergm.fit = NULL, seed = 12345,
+compare_predictions(ergm.fit = NULL, fergm.fit = NULL, seed = NULL,
   replications = 500)
 }
 \arguments{
@@ -12,7 +12,7 @@ compare_predictions(ergm.fit = NULL, fergm.fit = NULL, seed = 12345,
 
 \item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
 
-\item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to 12345.}
+\item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to a null value for no seed setting.}
 
 \item{replications}{The number of networks to be simulated to assess predictions. Defaults to 500.}
 }
