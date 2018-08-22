@@ -10,6 +10,7 @@
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @return The compare_predictions function returns a matrix reflecting the number of correctly predicted ties for the ERGM and FERGM for each network simulated.
 #' @examples
+#' \dontrun{
 #' # load example data
 #' data("ergm.fit")
 #' data("fergm.fit")
@@ -27,6 +28,7 @@
 #' # We can also conduct a KS test to determine if the FERGM fit
 #'      # it statistically disginguishable from the ERGM fit
 #' compare_predictions_test(predict_out)
+#' }
 #' @export
 
 compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = NULL, replications = 500){

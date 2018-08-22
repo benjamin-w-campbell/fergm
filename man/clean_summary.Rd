@@ -18,6 +18,7 @@ This function returns a matrix summarizing the posterior distribution, including
 This function takes a \code{stan} object and return a clean summary of the posterior distribution.
 }
 \examples{
+\dontrun{
 # The fergm.fit$stan.fit object is of class stanfit.
    # We keep it this way such that users can rely upon
    # conventional stan functions for interpretation
@@ -38,6 +39,7 @@ est <- clean_summary(fergm.fit)
 est <- clean_summary(fergm.fit,
 custom_var_names = c("Edges", "Sex Homophily", "Grade Homophily",
 "Race Homophily", "GWESP", "Alternating K-Stars"))
+}
 }
 \references{
 Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2018. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}. (26)1:3-19.

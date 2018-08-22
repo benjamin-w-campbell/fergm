@@ -8,6 +8,7 @@
 #' @references Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2018. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}. (26)1:3-19.
 #' @references Stan Development Team (2016). RStan: the R interface to Stan. R package version 2.14.1. \url{http://mc-stan.org/}.
 #' @examples
+#' \dontrun{
 #' # The fergm.fit$stan.fit object is of class stanfit.
 #'    # We keep it this way such that users can rely upon
 #'    # conventional stan functions for interpretation
@@ -28,6 +29,7 @@
 #' est <- clean_summary(fergm.fit,
 #' custom_var_names = c("Edges", "Sex Homophily", "Grade Homophily",
 #' "Race Homophily", "GWESP", "Alternating K-Stars"))
+#' }
 #' @export
 
 clean_summary <- function(fergm.fit = NULL, custom_var_names = NULL){
