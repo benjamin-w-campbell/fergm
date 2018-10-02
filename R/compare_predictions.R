@@ -3,6 +3,7 @@
 #' This function allows you to assess the importance of the frailty term in prediction by comparing the predictive accuracy of an ERGM to an FERGM.
 #' @param ergm.fit A model object returned by the \code{ergm} function.  Must be specified.
 #' @param fergm.fit A model object returned by the \code{fergm} function.  Must be specified.
+#' @param net This is the network object that the ERGM and FERGM were fit on.  This network object must be in the global environment.  Must be specified.
 #' @param seed An integer that sets the seed for the random number generator to assist in replication.  Defaults to a null value for no seed setting.
 #' @param replications The number of networks to be simulated to assess predictions. Defaults to 500.
 #' @keywords Fit GOF Prediction.
@@ -31,7 +32,7 @@
 #' }
 #' @export
 
-compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = NULL, replications = 500){
+compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, net = NULL, seed = NULL, replications = 500){
 
   if(!is.null(seed)){
     set.seed(seed)
@@ -42,16 +43,16 @@ compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = NULL, 
   lt <- function(m) { m[lower.tri(m)] }
   n_dyads <- choose(ergm.fit$network$gal$n, 2)
 
-  nw <- ergm.fit$network
-  new_formula <- update.formula(ergm.fit$formula, nw ~ .)
+  new_formula <- update.formula(ergm.fit$formula, net ~ .)
   ergm_coefs <- ergm.fit$coef
 
   ergm.pred <- function()
   {
-    flo.truth <- lt(as.matrix(nw))
-    sim.pred <- lt(as.matrix(simulate.formula(object = new_formula, coef = ergm_coefs)))
+    flo.truth <- lt(as.matrix(ergm.fit$network))
+    sim.pred <- lt(as.matrix(simulate(object = new_formula, coef = ergm_coefs)))
     sum(flo.truth == sim.pred) / n_dyads
   }
+
 
   pct_correct_ergm <- replicate(replications, ergm.pred())
 
