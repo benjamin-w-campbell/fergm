@@ -42,10 +42,14 @@ compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = NULL, 
   lt <- function(m) { m[lower.tri(m)] }
   n_dyads <- choose(ergm.fit$network$gal$n, 2)
 
+  nw <- ergm.fit$network
+  new_formula <- update.formula(ergm.fit$formula, nw ~ .)
+  ergm_coefs <- ergm.fit$coef
+
   ergm.pred <- function()
   {
-    flo.truth <- lt(as.matrix(ergm.fit$network))
-    sim.pred <- lt(as.matrix(simulate.ergm(ergm.fit)))
+    flo.truth <- lt(as.matrix(nw))
+    sim.pred <- lt(as.matrix(simulate.formula(object = new_formula, coef = ergm_coefs)))
     sum(flo.truth == sim.pred) / n_dyads
   }
 
@@ -69,4 +73,3 @@ compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, seed = NULL, 
 
   return(correct_mat)
 }
-
