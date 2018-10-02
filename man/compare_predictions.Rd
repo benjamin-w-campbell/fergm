@@ -4,13 +4,15 @@
 \alias{compare_predictions}
 \title{Compare predictions of ERGM to FERGM.}
 \usage{
-compare_predictions(ergm.fit = NULL, fergm.fit = NULL, seed = NULL,
-  replications = 500)
+compare_predictions(ergm.fit = NULL, fergm.fit = NULL, net = NULL,
+  seed = NULL, replications = 500)
 }
 \arguments{
 \item{ergm.fit}{A model object returned by the \code{ergm} function.  Must be specified.}
 
 \item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
+
+\item{net}{This is the network object that the ERGM and FERGM were fit on.  This network object must be in the global environment.  Must be specified.}
 
 \item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to a null value for no seed setting.}
 
