@@ -19,9 +19,8 @@
 #'
 #' # Use built in compare_predictions function to compare predictions of ERGM and FERGM,
 #' # few replications due to example
-#' net = ergm.fit$network
-#' predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit, net = net,
-#'                                    replications = 10, seed=12345)
+#' predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit,
+#' net = mesa, replications = 10, seed=12345)
 #'
 #' # Use the built in compare_predictions_plot function to examine the densities of
 #' #  correctly predicted ties from the compare_predictions simulations
@@ -44,13 +43,13 @@ compare_predictions <- function(ergm.fit = NULL, fergm.fit = NULL, net = NULL, s
   lt <- function(m) { m[lower.tri(m)] }
   n_dyads <- choose(ergm.fit$network$gal$n, 2)
 
-  new_formula <- update.formula(ergm.fit$formula, net ~ .)
+  new_formula <- stats::update.formula(ergm.fit$formula, net ~ .)
   ergm_coefs <- ergm.fit$coef
 
   ergm.pred <- function()
   {
     flo.truth <- lt(as.matrix(ergm.fit$network))
-    sim.pred <- lt(as.matrix(simulate(object = new_formula, coef = ergm_coefs)))
+    sim.pred <- lt(as.matrix(simulate.formula(object = new_formula, coef = ergm_coefs)))
     sum(flo.truth == sim.pred) / n_dyads
   }
 
