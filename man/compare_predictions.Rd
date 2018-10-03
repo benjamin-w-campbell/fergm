@@ -25,7 +25,6 @@ The compare_predictions function returns a matrix reflecting the number of corre
 This function allows you to assess the importance of the frailty term in prediction by comparing the predictive accuracy of an ERGM to an FERGM.
 }
 \examples{
-\dontrun{
 # load example data
 data("ergm.fit")
 data("fergm.fit")
@@ -42,7 +41,6 @@ compare_predictions_plot(predict_out)
 # We can also conduct a KS test to determine if the FERGM fit
      # it statistically disginguishable from the ERGM fit
 compare_predictions_test(predict_out)
-}
 }
 \references{
 Box-Steffensmeier, Janet M., Dino P. Christenson, and Jason W. Morgan. 2018. ``Modeling Unobserved Heterogeneity in Social Networks with the Frailty Exponential Random Graph Model." \emph{Political Analysis}. (26)1:3-19.
