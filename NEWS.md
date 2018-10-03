@@ -1,4 +1,7 @@
 # fergm 1.1.2
+* Updated `compare_predictions()` to deal with updates in the `ergm` simulation functions.
+
+# fergm 1.1.2
 * Updated vignette to ensure consistency in function calls between help pages and vignettes.  
 
 * Updated seed setting argument and functionality of `compare_predictions()` to assist in replicability.  
