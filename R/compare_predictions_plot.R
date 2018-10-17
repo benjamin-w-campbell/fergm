@@ -12,7 +12,8 @@
 #' data("mesa")
 #' # Use built in compare_predictions function to compare predictions of ERGM and FERGM,
 #' # few replications due to example.
-#' predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit, net = mesa,
+#'  net <- ergm.fit$network
+#' predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit,
 #'                                    replications = 10, seed = 123456)
 #' # Use the built in compare_predictions_plot function to examine the densities
 #' # of correctly predicted ties from the compare_predictions simulations
@@ -22,7 +23,7 @@
 
 compare_predictions_plot <- function(compare_predictions_out = NULL){
   plot_df <- reshape2::melt(as.data.frame(compare_predictions_out))
-  p <- ggplot(data = plot_df, aes(x = plot_df$value, color = plot_df$variable, fill = plot_df$variable)) +
+  p <- ggplot2::ggplot(data = plot_df, aes(x = plot_df$value, color = plot_df$variable, fill = plot_df$variable)) +
     geom_density(alpha = 0.5) +
     xlab("Percent of Ties Correctly Predicted") +
     ylab("Density") +

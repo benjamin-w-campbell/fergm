@@ -13,13 +13,11 @@
 #' data("fergm.fit")
 #' data("mesa")
 #'
-#' # You can also look at the density of particular variables
-#'   # using the following built in rstan functions:
-#' plot(fergm.fit$stan.fit, par = "beta")
+#' # rstan functions
 #' # Histogram of the posterior
-#' stan_hist(fergm.fit$stan.fit, par = "beta")
+#' rstan::stan_hist(fergm.fit$stan.fit, par = "beta")
 #' # Density of the posteriors
-#' stan_dens(fergm.fit$stan.fit, par = "beta")
+#' rstan::stan_dens(fergm.fit$stan.fit, par = "beta")
 #'
 #' # We have a cleaner function to look at the posterior densities
 #' densities <- coef_posterior_density(fergm.fit = fergm.fit,
@@ -46,7 +44,7 @@ coef_posterior_density <- function(fergm.fit = NULL, custom_var_names = NULL){
     plot_df <- reshape2::melt(plot_df)
     var <- custom_var_names[i]
 
-    pl <- ggplot(data = plot_df, aes(x = plot_df$value)) +
+    pl <- ggplot2::ggplot(data = plot_df, aes(x = plot_df$value)) +
       geom_density(alpha = 0.5, fill = "firebrick4", color = "firebrick4") +
       xlab("Effect Value") +
       ylab("Density") +

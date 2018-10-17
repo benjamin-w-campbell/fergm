@@ -1,4 +1,10 @@
-# fergm 1.1.2
+# fergm 1.1.4
+* Updated `compare_predictions()` to deal with updates in the `ergm` S3 simulation functions.
+* Removed any import of `ergm` exports given importation of entire `ergm` package.
+* Troubleshooting of prior error for simulating from an ERGM by ensuring a network object on the LHS for simulate.ergm is present in global environment.
+* Removed any importing of `coef.ergm()` or `simulate.formula()` as they will be deprecated in future `ergm` packages.
+
+# fergm 1.1.3
 * Updated `compare_predictions()` to deal with updates in the `ergm` simulation functions.
 
 # fergm 1.1.2

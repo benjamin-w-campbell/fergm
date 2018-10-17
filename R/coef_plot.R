@@ -33,7 +33,7 @@ coef_plot <- function(fergm.fit = NULL, ergm.fit = NULL, custom_var_names = NULL
   colnames(fergm_df)[1] <- "mean"
 
   if(!is.null(ergm.fit)){
-    est <- cbind(round(cbind(ergm::coef.ergm(ergm.fit),
+    est <- cbind(round(cbind(stats::coef(ergm.fit),
                              stats::confint(ergm.fit)), 3),
                  round(fergm_df, 3))
     colnames(est) <- c("ergm", "ergm.low", "ergm.high", "fergm", "fergm.low",
@@ -51,7 +51,7 @@ coef_plot <- function(fergm.fit = NULL, ergm.fit = NULL, custom_var_names = NULL
     }
     coef_df$var <- factor(coef_df$var, levels = unique(coef_df$var))
 
-    p = ggplot(coef_df, aes(x=coef_df$var)) +
+    p = ggplot2::ggplot(coef_df, aes(x=coef_df$var)) +
       geom_pointrange(aes(y = coef_df$coef, ymin = coef_df$low, ymax = coef_df$high), colour=ifelse(coef_df$low < 0 & coef_df$high > 0, "firebrick4", "dodgerblue4")) +
       theme_bw()  +
       coord_flip() +
@@ -78,7 +78,7 @@ coef_plot <- function(fergm.fit = NULL, ergm.fit = NULL, custom_var_names = NULL
     }
     coef_df$var <- factor(coef_df$var, levels = unique(coef_df$var))
 
-    p = ggplot(coef_df, aes(x=coef_df$var)) +
+    p = ggplot2::ggplot(coef_df, aes(x=coef_df$var)) +
       geom_pointrange(aes(y = coef_df$coef, ymin = coef_df$low, ymax = coef_df$high), colour=ifelse(coef_df$low < 0 & coef_df$high > 0, "firebrick4", "dodgerblue4")) +
       theme_bw()  +
       coord_flip() +

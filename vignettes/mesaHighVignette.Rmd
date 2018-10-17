@@ -78,7 +78,7 @@ est <- clean_summary(fergm.fit,
                      custom_var_names = c("Edges", "Sex Homophily",
                                           "GradeHomophily", "Race Homophily",
                                           "GWESP", "Alternating K-Stars"))
-
+est
 # Compare substantive implications via coef plot, these are with 95% credible intervals
 coef_plot(fergm.fit = fergm.fit)
 
@@ -125,10 +125,11 @@ fergm_beta_traceplot(fergm.fit,
 Additional diagnostics are available using the `rstan` package, and we would refer the reader to their well-written manual for further diagnostics or details on their built-in diagnostic plots.  
 
 ## Compare ERGM and FERGM Fit
-One might be interested in the relative difference in predictive performance between an ERGM and an FERGM.  While the `coef_plot()` function offers an opportunity to compare the coefficients of these two models, it does not provide a means to assess the relative fit of each model. Relative fit is examined through simulating a number of networks based upon the model results and examining the average number of correctly predicted ties across all simulated networks.  This routine is described by the manuscript presenting the model [@box2018modeling].  The code to perform this routine is as follows:
+One might be interested in the relative difference in predictive performance between an ERGM and an FERGM.  While the `coef_plot()` function offers an opportunity to compare the coefficients of these two models, it does not provide a means to assess the relative fit of each model. Relative fit is examined through simulating a number of networks based upon the model results and examining the average number of correctly predicted ties across all simulated networks.  This routine is described by the manuscript presenting the model [@box2018modeling].  **Note, specifying an object named net prior to estimating the compare_predictions function is necessary to produce a valid network on the left-hand side of the simulate method for ERGMs.**  The code to perform this routine is as follows:
 
 ```{r, echo = TRUE, eval = FALSE}
 # Use fergm built in compare_predictions function to compare predictions of ERGM and FERGM
+net <- ergm.fit$network
 predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit, replications = 100)
 
 # Use the built in compare_predictions_plot function to examine the densities of correctly predicted

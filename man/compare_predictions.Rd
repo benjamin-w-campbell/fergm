@@ -4,15 +4,13 @@
 \alias{compare_predictions}
 \title{Compare predictions of ERGM to FERGM.}
 \usage{
-compare_predictions(ergm.fit = NULL, fergm.fit = NULL, net = NULL,
-  seed = NULL, replications = 500)
+compare_predictions(ergm.fit = NULL, fergm.fit = NULL, seed = NULL,
+  replications = 500)
 }
 \arguments{
 \item{ergm.fit}{A model object returned by the \code{ergm} function.  Must be specified.}
 
 \item{fergm.fit}{A model object returned by the \code{fergm} function.  Must be specified.}
-
-\item{net}{This is the network object that the ERGM and FERGM were fit on.  This network object must be in the global environment.  Must be specified.}
 
 \item{seed}{An integer that sets the seed for the random number generator to assist in replication.  Defaults to a null value for no seed setting.}
 
@@ -23,17 +21,20 @@ The compare_predictions function returns a matrix reflecting the number of corre
 }
 \description{
 This function allows you to assess the importance of the frailty term in prediction by comparing the predictive accuracy of an ERGM to an FERGM.
+Note: Prior to estimating this function, ensure the network object of interest is saved to the global environment and named "net."
 }
 \examples{
 # load example data
+library(fergm)
 data("ergm.fit")
 data("fergm.fit")
-data("mesa")
 
 # Use built in compare_predictions function to compare predictions of ERGM and FERGM,
 # few replications due to example
+# Make sure "net" is an object defined in the global environment.
+net <- ergm.fit$network
 predict_out <- compare_predictions(ergm.fit = ergm.fit, fergm.fit = fergm.fit,
-                                   net = mesa, replications = 10, seed=12345)
+                                   replications = 10, seed=12345)
 
 # Use the built in compare_predictions_plot function to examine the densities of
 #  correctly predicted ties from the compare_predictions simulations

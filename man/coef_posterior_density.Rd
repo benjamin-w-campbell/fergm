@@ -23,13 +23,11 @@ data("ergm.fit")
 data("fergm.fit")
 data("mesa")
 
-# You can also look at the density of particular variables
-  # using the following built in rstan functions:
-plot(fergm.fit$stan.fit, par = "beta")
+# rstan functions
 # Histogram of the posterior
-stan_hist(fergm.fit$stan.fit, par = "beta")
+rstan::stan_hist(fergm.fit$stan.fit, par = "beta")
 # Density of the posteriors
-stan_dens(fergm.fit$stan.fit, par = "beta")
+rstan::stan_dens(fergm.fit$stan.fit, par = "beta")
 
 # We have a cleaner function to look at the posterior densities
 densities <- coef_posterior_density(fergm.fit = fergm.fit,

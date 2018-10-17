@@ -2,14 +2,14 @@
 ## Random effects ERGM, Functions for Monte Carlo Simulations
 ## =============================================================================
 
-require(lattice)
-require(network)
-require(ergm)
-require(sna)
-require(lme4)
-require(latentnet)
-require(snow)
-require(rlecuyer)
+#require(lattice)
+#require(network)
+#require(ergm)
+#require(sna)
+#require(lme4)
+#require(latentnet)
+#require(snow)
+#require(rlecuyer)
 
 ## -----------------------------------------------------------------------------
 ## Functions for preparing the data.
@@ -40,15 +40,15 @@ to_indicator <- function(X, directed=FALSE)
 prepare_fergm_data <- function(net, form, verbose=FALSE)
 {
   ## Temporary until directed code is added.
-  if (is.directed(net)) stop("Directed networks not yet supported.")
+  if (network::is.directed(net)) stop("Directed networks not yet supported.")
 
   if (isTRUE(verbose)) cat("\n## Preparing FERGM dataset...")
   nodes <- nrow(as.matrix(net))
-  ndyads <- network.dyadcount(net)
-  form <- as.formula(paste("net ~", form))
+  ndyads <- network::network.dyadcount(net)
+  form <- stats::as.formula(paste("net ~", form))
 
   if (isTRUE(verbose)) cat("\n##   building array...")
-  dta.array <- ergmMPLE(form, output="array", maxMPLEsamplesize=+Inf,
+  dta.array <- ergm::ergmMPLE(form, output="array", maxMPLEsamplesize=+Inf,
                         control=control.ergm(MPLE.max.dyad.types=ndyads*10))
 
   if (isTRUE(verbose)) cat("\n##   building data.frame...")
@@ -104,8 +104,8 @@ prepare_stan_data <- function(net, dta)
 ## gden().
 get_density <- function(lst)
 {
-  if (is.network(lst))
-    network.density(lst)
+  if (network::is.network(lst))
+    network::network.density(lst)
   else
     sapply(lst, network.density)
 }
@@ -124,7 +124,7 @@ sim_networks <- function(n, form, coef, density=0.15, directed=FALSE,
     set.seed(seed)
 
   if (isTRUE(verbose)) cat("\n## Generating base network...")
-  base <- network(n, density=density, directed=directed)
+  base <- network::network(n, density=density, directed=directed)
   base %v% "X" <- sample(LETTERS[1:2], n, replace=TRUE)
 
 
@@ -135,7 +135,7 @@ sim_networks <- function(n, form, coef, density=0.15, directed=FALSE,
   }
 
   if (isTRUE(verbose)) cat("\n## Simulating network(s)...\n")
-  sims <- simulate(as.formula(paste0("~", form)), nsim=nsim,
+  sims <- stats::simulate(as.formula(paste0("~", form)), nsim=nsim,
                    coef=coef, basis=base, control=control)
   sims
 }
@@ -196,12 +196,12 @@ est_ergm <- function(net, form, verbose=FALSE)
   message("## NETWORK ", N)
   message("## -----------------------------------------------------------------------------")
 
-  form <- as.formula(paste("net ~", form))
+  form <- stats::as.formula(paste("net ~", form))
   est <- NA
 
   ## ROUND 1: This round is meant to quickly get some reasonable estimates.
   if (isTRUE(verbose)) message("## Estimating model with ERGM, Round 1")
-  try(est <- ergm(form, control=control.ergm(
+  try(est <- ergm::ergm(form, control=control.ergm(
     MCMLE.maxit=4,
     MCMLE.steplength=1,
     MCMLE.steplength.margin=0.05,
@@ -211,14 +211,14 @@ est_ergm <- function(net, form, verbose=FALSE)
   ## ROUND 2: Refine the estimate.
   if (isTRUE(verbose)) message("## Estimating model with ERGM, Round 2")
   if (class(est) == "ergm") {
-    CURRENT <- coef(est)
-    try(est <- ergm(form, control=control.ergm(init=CURRENT,
+    CURRENT <- stats::coef(est)
+    try(est <- ergm::ergm(form, control=control.ergm(init=CURRENT,
                                                MCMLE.maxit=20,
                                                parallel=1),
                     verbose=verbose))
   } else {
     message("## Estimate failed, attempting restart")
-    try(est <- ergm(form, control=control.ergm(parallel=1,
+    try(est <- ergm::ergm(form, control=control.ergm(parallel=1,
                                                MCMLE.maxit=20),
                     verbose=verbose))
   }
@@ -234,12 +234,12 @@ est_ergm <- function(net, form, verbose=FALSE)
 
     if (class(est) == "ergm") {
       CURRENT <- coef(est)
-      try(est <- ergm(form, control=control.ergm(init=CURRENT,
+      try(est <- ergm::ergm(form, control=control.ergm(init=CURRENT,
                                                  MCMLE.maxit=20,
                                                  parallel=2),
                       verbose=verbose))
     } else {
-      try(est <- ergm(form,
+      try(est <- ergm::ergm(form,
                       control=control.ergm(parallel=2, MCMLE.maxit=20),
                       verbose=verbose))
     }
@@ -257,7 +257,7 @@ est_stan <- function(net)
   f <- "edges + gwesp(0.75, fixed=TRUE) + nodematch('X')"
   dta <- prepare_fergm_data(net, f, verbose=TRUE)
   dta <- prepare_stan_data(net, dta)
-  stan.fit <- stan(file="../fergm-undirected.stan",
+  stan.fit <- rstan::stan(file="../fergm-undirected.stan",
                    data=dta, chains=4, warmup=200, iter=700)
   summary(stan.fit)$summary
 }

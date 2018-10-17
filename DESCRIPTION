@@ -12,15 +12,16 @@ URL: http://github.com/benjamin-w-campbell/fergm
 Depends:
   R (>= 3.3),
   rstan (>= 2.16.2),
-  ggplot2 (>= 2.2.1),
- parallel (>= 3.3.3),
-   ergm (>= 3.9),
-  network (>= 1.13.0)
 Imports:
- stringr (>= 1.2.0),
- extrafont (>= 0.17),
+  ggplot2 (>= 2.2.1),
+  parallel (>= 3.3.3),
+  ergm (>= 3.9),
+  network (>= 1.13.0),
+  stringr (>= 1.2.0),
+  extrafont (>= 0.17),
   matrixStats (>= 0.52.2),
   reshape2 (>= 1.4.2),
+  stats (>= 3.4.4),
 License: GPL-3
 Encoding: UTF-8
 LazyData: false
