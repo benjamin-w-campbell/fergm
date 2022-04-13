@@ -66,7 +66,7 @@ fergm <- function(net = NULL, form = NULL, seed = 12345, chains = 4, warmup = 10
     form <- stats::as.formula(paste("net ~", form))
 
     if (isTRUE(verbose)) cat("\n##   building array...")
-    dta.array <- ergm::ergmMPLE(form, output="array", maxMPLEsamplesize=+Inf,
+    dta.array <- ergm::ergmMPLE(form, output="array",
                           control=ergm::control.ergm(MPLE.max.dyad.types=ndyads*10))
 
     if (isTRUE(verbose)) cat("\n##   building data.frame...")
